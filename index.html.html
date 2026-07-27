@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jhovanno Adielien Miscel — Portofolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FBFAF6;
+    --paper: #FFFFFF;
+    --ink: #2E2B26;
+    --ink-soft: #6b665d;
+    --lavender: #E4E1F3;
+    --lavender-deep: #A79EDB;
+    --sage: #C9DFC6;
+    --sage-deep: #7EA678;
+    --butter: #F6E4A8;
+    --sky: #C7E2ED;
+    --sky-deep: #6FA9C2;
+    --line: #E4E0D6;
+    --radius: 18px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(46,43,38,0.05) 1px, transparent 0);
+    background-size: 22px 22px;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--lavender-deep); color:#fff; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 28px; }
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(251,250,246,0.75);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:1040px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo-badge{
+    width:30px; height:30px; border-radius:8px;
+    background:var(--lavender-deep); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono', monospace; font-size:0.75rem;
+    transform:rotate(-6deg);
+  }
+  .nav-links{ display:flex; gap:6px; font-size:0.92rem; }
+  .nav-links a{
+    padding:8px 14px; border-radius:999px; color:var(--ink-soft);
+    transition:all .2s ease;
+  }
+  .nav-links a:hover{ background:var(--paper); color:var(--ink); box-shadow:0 1px 2px rgba(0,0,0,.05); }
+
+  /* HERO — notebook page */
+  .hero{ padding:72px 0 40px; }
+  .hero-card{
+    position:relative;
+    background:var(--paper);
+    border-radius:24px;
+    border:1px solid var(--line);
+    padding:56px 48px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.03), 0 20px 40px -24px rgba(46,43,38,.15);
+    overflow:hidden;
+  }
+  .hero-card::before{
+    content:"";
+    position:absolute; left:78px; top:0; bottom:0; width:1px;
+    background: repeating-linear-gradient(var(--sky-deep), var(--sky-deep) 0);
+    opacity:.18;
+  }
+  .hero-card::after{
+    content:"";
+    position:absolute; inset:0;
+    background: repeating-linear-gradient(180deg, transparent, transparent 33px, rgba(111,169,194,0.08) 34px);
+    pointer-events:none;
+  }
+  .tape{
+    position:absolute; top:-14px; right:56px;
+    width:110px; height:34px; background:var(--butter);
+    opacity:.75; transform:rotate(4deg);
+    box-shadow:0 2px 4px rgba(0,0,0,.08);
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono', monospace; font-size:0.78rem;
+    color:var(--sage-deep); background:var(--sage); padding:6px 12px;
+    border-radius:999px; margin-bottom:22px;
+  }
+  .eyebrow::before{ content:"●"; font-size:0.6rem; }
+  h1{
+    font-family:'Fraunces', serif; font-weight:500; font-style:italic;
+    font-size:clamp(2.2rem, 5vw, 3.4rem);
+    line-height:1.08; margin:0 0 18px; letter-spacing:-0.01em;
+  }
+  h1 .accent{ font-style:normal; font-weight:600; color:var(--lavender-deep); }
+  .hero-sub{ font-size:1.08rem; color:var(--ink-soft); max-width:520px; line-height:1.65; margin-bottom:30px; }
+  .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn{
+    padding:12px 22px; border-radius:12px; font-weight:600; font-size:0.92rem;
+    display:inline-flex; align-items:center; gap:8px; transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary{ background:var(--ink); color:var(--bg); }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 20px -8px rgba(46,43,38,.4); }
+  .btn-ghost{ background:var(--paper); border:1px solid var(--line); color:var(--ink); }
+  .btn-ghost:hover{ transform:translateY(-2px); border-color:var(--ink-soft); }
+
+  /* SECTION shell */
+  section{ padding:64px 0; }
+  .section-head{ margin-bottom:34px; display:flex; align-items:baseline; gap:14px; }
+  .tab{
+    font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:var(--ink-soft);
+    background:var(--paper); border:1px solid var(--line); padding:4px 10px; border-radius:8px;
+  }
+  h2{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.9rem; margin:0;
+  }
+  .section-note{ color:var(--ink-soft); font-size:0.95rem; margin-top:6px; }
+
+  /* ABOUT */
+  .about-grid{
+    display:grid; grid-template-columns: 1.2fr 1fr; gap:32px; align-items:start;
+  }
+  .about-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:32px; line-height:1.75; color:var(--ink-soft); font-size:1rem;
+  }
+  .about-card strong{ color:var(--ink); }
+  .fact-list{ display:flex; flex-direction:column; gap:14px; }
+  .fact{
+    background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:16px 18px; display:flex; justify-content:space-between; align-items:center;
+    font-size:0.92rem;
+  }
+  .fact span:first-child{ color:var(--ink-soft); }
+  .fact span:last-child{ font-weight:600; font-family:'JetBrains Mono', monospace; font-size:0.85rem; }
+
+  /* SKILLS */
+  .skills-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+  .skill-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px;
+    padding:22px; transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .skill-card:hover{ transform:translateY(-4px); box-shadow:0 16px 30px -18px rgba(46,43,38,.25); }
+  .skill-icon{
+    width:38px; height:38px; border-radius:10px; margin-bottom:14px;
+    display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+  }
+  .skill-card h3{ font-family:'Fraunces', serif; font-size:1.05rem; margin:0 0 10px; font-weight:600; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:6px; }
+  .chip{
+    font-family:'JetBrains Mono', monospace; font-size:0.72rem;
+    padding:5px 10px; border-radius:999px; color:var(--ink);
+  }
+  .c-lav{ background:var(--lavender); } .c-sage{ background:var(--sage); }
+  .c-sky{ background:var(--sky); } .c-butter{ background:var(--butter); }
+
+  /* EDUCATION timeline */
+  .timeline{ position:relative; padding-left:30px; }
+  .timeline::before{
+    content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px;
+    background:repeating-linear-gradient(180deg, var(--ink-soft) 0 6px, transparent 6px 12px);
+    opacity:.35;
+  }
+  .t-item{ position:relative; padding-bottom:36px; }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-dot{
+    position:absolute; left:-30px; top:4px; width:14px; height:14px; border-radius:50%;
+    background:var(--sky-deep); border:3px solid var(--bg); box-shadow:0 0 0 1px var(--sky-deep);
+  }
+  .t-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px;
+    padding:22px 26px;
+  }
+  .t-period{ font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:var(--sky-deep); margin-bottom:6px; display:block; }
+  .t-card h3{ font-family:'Fraunces', serif; font-size:1.15rem; margin:0 0 4px; }
+  .t-card p{ color:var(--ink-soft); margin:6px 0 0; font-size:0.92rem; line-height:1.6; }
+
+  footer{
+    padding:48px 0 60px; text-align:center; color:var(--ink-soft); font-size:0.88rem;
+    border-top:1px solid var(--line); margin-top:20px;
+  }
+  footer .foot-links{ display:flex; gap:18px; justify-content:center; margin-bottom:14px; }
+  footer .foot-links a{ color:var(--ink); font-weight:600; }
+  footer .foot-links a:hover{ color:var(--lavender-deep); }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:760px){
+    .about-grid{ grid-template-columns:1fr; }
+    .skills-grid{ grid-template-columns:1fr 1fr; }
+    .hero-card{ padding:40px 24px; }
+  }
+  @media (max-width:520px){
+    .skills-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--lavender-deep); outline-offset:3px; border-radius:6px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><span class="logo-badge">NK</span> Jhovanno Adielien Miscel</div>
+    <div class="nav-links">
+      <a href="#about">Tentang</a>
+      <a href="#skills">Skills</a>
+      <a href="#pendidikan">Pendidikan</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-card">
+      <div class="tape"></div>
+      <span class="eyebrow">catatan pribadi · 2026</span>
+      <h1>Halo, saya <span class="accent">Jhovanno Adielien Miscel</span> —<br>murid yang suka belajar hal baru.</h1>
+      <p class="hero-sub">Saya sedang menempuh pendidikan Di SMK TELKOM PURWOKERTO sambil mengasah kemampuan di bidang yang saya minati. Halaman ini berisi cerita singkat tentang saya, apa yang bisa saya lakukan, dan perjalanan pendidikan saya sejauh ini.</p>
+      <div class="hero-actions">
+        <a href="#about" class="btn btn-primary">Kenalan Yuk ↓</a>
+        <a href="mailto:jhovannoadielienmiscel@gmail.com" class="btn btn-ghost">Kirim Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-head">
+      <span class="tab">01</span>
+      <div><h2>Tentang Saya</h2><p class="section-note">Sekilas cerita tentang siapa saya.</p></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <p>Saya <strong>Jhovanno Adielien Miscel</strong>,  seorang siswa Pengembangan Perangkat Lunak dan Gim (PPLG) yang memiliki semangat untuk belajar dan berkembang di dunia teknologi.
+
+Saya tertarik pada pengembangan website, desain antarmuka, serta pembuatan aplikasi yang modern dan fungsional. Saat ini saya terus meningkatkan kemampuan melalui berbagai proyek dan eksplorasi teknologi terbaru.</p>
+        <p style="margin-top:14px;">Di luar urusan akademik, saya senang <strong>bermain game</strong>. Halaman ini adalah tempat saya merangkum semuanya dalam satu tempat yang rapi.</p>
+      </div>
+      <div class="fact-list reveal">
+        <div class="fact"><span>Lokasi</span><span>Purwokerto, Jawa Tengah, Indonesia</span></div>
+        <div class="fact"><span>Status</span><span>Pelajar</span></div>
+        <div class="fact"><span>Fokus</span><span>Mengembangkan kemampuan.</span></div>
+        <div class="fact"><span>Kontak</span><span>jhovannoadielienmiscel@gmail.com</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-head">
+      <span class="tab">02</span>
+      <div><h2>Skills</h2><p class="section-note">Kemampuan yang sedang saya bangun dan kuasai.</p></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon" style="background:var(--lavender);">💻</div>
+        <h3>Teknis</h3>
+        <div class="chip-row">
+          <span class="chip c-lav">Microsoft Office</span>
+          <span class="chip c-lav">Canva</span>
+          <span class="chip c-lav">Dasar HTML/CSS</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon" style="background:var(--sage);">🗣️</div>
+        <h3>Soft Skills</h3>
+        <div class="chip-row">
+          <span class="chip c-sage">Manajemen Waktu</span>
+          <span class="chip c-sage">Kerja Tim</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon" style="background:var(--sky);">🌐</div>
+        <h3>Bahasa</h3>
+        <div class="chip-row">
+          <span class="chip c-sky">Bahasa Indonesia</span>
+          <span class="chip c-sky">Bahasa Inggris</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon" style="background:var(--butter);">🎨</div>
+        <h3>Kreatif</h3>
+        <div class="chip-row">
+          <span class="chip c-butter">Desain Grafis</span>
+          <span class="chip c-butter">Fotografi</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon" style="background:var(--lavender);">📊</div>
+        <h3>Organisasi</h3>
+        <div class="chip-row">
+          <span class="chip c-lav">Perencanaan Acara</span>
+          <span class="chip c-lav">Kepemimpinan</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon" style="background:var(--sage);">📚</div>
+        <h3>Akademik</h3>
+        <div class="chip-row">
+          <span class="chip c-sage">Riset</span>
+          <span class="chip c-sage">Menulis Ilmiah</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PENDIDIKAN -->
+  <section id="pendidikan">
+    <div class="section-head">
+      <span class="tab">03</span>
+      <div><h2>Pendidikan</h2><p class="section-note">Perjalanan belajar saya sampai sekarang.</p></div>
+    </div>
+    <div class="timeline">
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <span class="t-period">2026 — Sekarang</span>
+          <h3>SMK TELKOM PURWOKERTO</h3>
+          <p>Di SMK TELKOM PURWOKERTO, saya mengambil Jurusan Rekayasa Perangkat Lunak.</p>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <span class="t-period">2024 — 2026</span>
+          <h3>SMP TELKOM PURWOKERTO</h3>
+          <p>Disinilah saya semakin tertarik di dunia teknologi.</p>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <span class="t-period">2018 — 2024</span>
+          <h3>SD BRUDERAN PURWOKERTO</h3>
+          <p>Disinilah saya mulai mengerti dan tertarik dengan dunia teknologi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="foot-links">
+    <a href="mailto:jhovannoadielienmiscel@gmail.com">Email</a>
+    <a href="https://wa.me/+6287786866867" target="_blank">Whatsapp</a>
+    <a href="https://www.instagram.com/ini_vanoooo?igsh=ZDhqMHdnZTJ6em5i" target="_blank">Instagram</a>
+  </div>
+  © 2026 Jhovanno Adielien Miscel. 
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el=> io.observe(el));
+</script>
+
+</body>
+</html>
